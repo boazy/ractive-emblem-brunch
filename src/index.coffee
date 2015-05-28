@@ -1,4 +1,5 @@
 Ractive = require 'ractive'
+emblem = require 'emblem'
 umd = require 'umd-wrapper'
 sysPath = require 'path'
 
@@ -13,7 +14,8 @@ module.exports = class RactiveCompiler
 
   compile: (data, path, callback) ->
     try
-      result = umd JSON.stringify Ractive.parse data
+      hbdata = emblem.default.compile data
+      result = umd JSON.stringify Ractive.parse hbdata
     catch err
       error = err
     finally

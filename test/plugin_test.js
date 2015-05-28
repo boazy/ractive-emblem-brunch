@@ -16,7 +16,7 @@ describe('Plugin', function() {
   });
 
   it('should compile and produce valid result', function(done) {
-    var content = '<strong>{{weak}}</strong>';
+    var content = 'strong = weak';
     var expected = '<strong>wat</strong>';
 
     plugin.compile(content, 'template.rac', function(error, data) {
